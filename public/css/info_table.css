@@ -1,0 +1,24 @@
+#anom_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#anom_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#anom_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#anom_table th {
+  padding: 8px;
+  text-align: center;
+  background-color: #4856a7;
+  color: white;
+}
+
+.scroll_table {
+  overflow: auto;
+}

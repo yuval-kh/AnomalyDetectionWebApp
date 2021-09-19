@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anoamly Detector Web App</title>
+    <link rel="stylesheet" href="css/page_sections.css" />
+    <link rel="stylesheet" href="css/chart.css" />
+    <link rel="stylesheet" href="css/info_table.css" />
+    <link rel="stylesheet" href="css/side.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="mainDiv">
+      <div class="middleDiv">
+        <div class="chartArea">
+          <canvas id="chart" class="chart-container"></canvas>
+        </div>
+        <div class="side-div">
+          <div id="user_ui" class="hide">
+            <br />
+            <br />
+            <span style="font-size: 29">Anoamly Detector Web App</span>
+            <br />
+            <br />
+            <div class="seperator"></div>
+            <br />
+            <span>Correlated features:</span>
+            <br />
+            <select
+              id="corrolated_feature_select"
+              class="custom-select"
+              onchange="corraltionSelectionChanged(this)"
+            ></select>
+            <br />
+            <br />
+            <button id="back_button" onclick="backToUpload()">Back</button>
+          </div>
+          <div id="upload_ui" class="side-upload-div">
+            <br />
+            <br />
+            <span style="font-size: 29">Anoamly Detector Web App</span>
+            <br />
+            <br />
+            <div class="seperator"></div>
+            <span>Please upload training file:</span>
+            <br />
+            <input type="file" onchange="uploadTrainingFile(this)" />
+            <br />
+            <div class="seperator"></div>
+            <span>Please upload test file:</span>
+            <br />
+            <input type="file" onchange="uploadAnoamlyFile(this)" />
+            <br />
+            <div class="seperator"></div>
+            <span>Detection algorithm:</span>
+            <select id="alg_select">
+              <option value="detectLinear">Linear Regrassion</option>
+              <option value="detectHybrid">Hybrid</option>
+            </select>
+            <br />
+            <br />
+            <button id="upload_button" onclick="detectAnomalys()">
+              Detect!
+            </button>
+            <button id="btu_button" class="button" onclick="backToUser()">
+              >>
+            </button>
+            <div id="loading_ind" class="loader"></div>
+            <div class="seperator"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottomDiv scroll_table">
+        <table id="anom_table">
+          <tr>
+            <th>Correlated features</th>
+            <th>Time Step</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="ChartController.js"></script>
+    <script src="controller.js"></script>
+    <script src="TableController.js"></script>
+  </body>
+</html>
